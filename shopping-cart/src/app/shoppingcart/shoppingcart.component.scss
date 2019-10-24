@@ -1,0 +1,60 @@
+mat-card{
+    width: 75%;
+    margin: auto;
+    margin-top: 110px;
+    padding: 1px;
+
+    ::ng-deep .mat-grid-tile .mat-figure{
+        display: unset !important;
+    }
+
+    .title{
+        position: relative;
+        float: left;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+
+    mat-divider{
+        position: relative;
+        float: left;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .cart{
+        .title{
+            position: relative;
+            float: left;
+            width: 88%;
+            margin-left: 6%;
+            margin-top: 6%;
+        }
+    
+        mat-divider{
+            position: relative;
+            float: left;
+            width: 88%;
+            margin-left: 6%;
+        }
+    }
+
+    .summary{
+        background-color: #F5F5F5;
+        .title{
+            position: relative;
+            float: left;
+            width: 80%;
+            margin-left: 10%;
+            margin-top: 10%;
+        }
+    
+        mat-divider{
+            position: relative;
+            float: left;
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+}
