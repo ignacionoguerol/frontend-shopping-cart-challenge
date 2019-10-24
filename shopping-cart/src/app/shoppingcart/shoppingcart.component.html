@@ -1,20 +1,124 @@
+<div class="products">
+  <h1 class="main">Shopping Cart</h1>
+  
+  <table class="products-list">
 
-<mat-card>
-  <mat-grid-list cols="8">
+    <tr class="tableHead row product-list-title">
+      <th class="col-product">
+        <h2>PRODUCT DETAILS</h2>
+      </th>
+      <th class="col-quantity">
+        <h2>QUANTITY</h2>
+      </th>
+      <th class="col-price">
+        <h2>PRICE</h2>
+      </th>
+      <th class="col-total">
+        <h2>TOTAL</h2>
+      </th>
+    </tr>
 
-    <mat-grid-tile class="cart" [colspan]="5">
-      <div class="title">
-        <p>Shopping Cart</p>
-      </div>
-      <mat-divider inset="true"></mat-divider>
-    </mat-grid-tile>
+    <tr class="row product">
+      <td class="col-product">
+        <div class="product-image">
+          <img src='../../assets/img/shirt.png'>
+        </div>
+        <div>
+          <h1>Shirt</h1>
+          <p class="product-code"> Product code L23K45HG</p>
+        </div>
+      </td>
+      
+      <td class="col-quantity">
+        <button class="count">-</button>
+        <div class="product-quantity">
+          <p>3</p>
+        </div>
+        <button class="count">+</button>        
+      </td>
+      
+      <td class="col-price product-price">20€</td>
+      <td class="col-total product-price">60€</td>
+    </tr>
 
-    <mat-grid-tile class="summary" [colspan]="3">
-      <div class="title">
-        <p>Order Summary</p>
-      </div>
-      <mat-divider inset=true></mat-divider>
-    </mat-grid-tile>
+    <tr class="row product">
+        <td class="col-product">
+          <div class="product-image">
+            <img src='../../assets/img/mug.png'>
+          </div>
+          <div>
+            <h1>Shirt</h1>
+            <p class="product-code"> Product code L23K45HG</p>
+          </div>
+        </td>
+        
+        <td class="col-quantity">
+          <button class="count">-</button>
+          <div class="product-quantity">
+            <p>4</p>
+          </div>
+          <button class="count">+</button>        
+        </td>
+        
+        <td class="col-price product-price">5€</td>
+        <td class="col-total product-price">20€</td>
+      </tr>
 
-  </mat-grid-list>
-</mat-card>
+      <tr class="row product">
+          <td class="col-product">
+            <div class="product-image">
+              <img src='../../assets/img/cap.png'>
+            </div>
+            <div>
+              <h1>Shirt</h1>
+              <p class="product-code"> Product code L23K45HG</p>
+            </div>
+          </td>
+          
+          <td class="col-quantity">
+            <button class="count">-</button>
+            <div class="product-quantity">
+              <p>4</p>
+            </div>
+            <button class="count">+</button>        
+          </td>
+          
+          <td class="col-price product-price">10€</td>
+          <td class="col-total product-price">40€</td>
+        </tr>
+
+  </table>
+</div>
+
+<div class="summary">
+  <h1 class="main">Order Summary</h1>
+
+  <ul class="wrapper border">
+    <li>
+      <p> 11 Items</p>
+      <p class="summary-items-price"> 120€</p>
+    </li>
+  </ul>
+
+  <h2 class="">Dicounts</h2>
+
+  <ul>
+      <li>
+        <p> 2x1 Mug offer</p>
+        <p class=""> -10€</p>
+      </li>
+      <li>
+        <p> x3 Shirt offer</p>
+        <p class=""> -3€</p>
+      </li>
+    </ul>
+
+  <ul class="summary-total">
+    <li>
+      <p class="cost">total cost</p>
+      <p class="price summary-total-price">107€</p>
+    </li>
+  </ul>
+  
+  <button type="submit">Checkout</button>
+</div>

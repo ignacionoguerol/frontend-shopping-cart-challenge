@@ -6,10 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 
-//Angular Material Components
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -19,10 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatGridListModule,
-    MatDividerModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
