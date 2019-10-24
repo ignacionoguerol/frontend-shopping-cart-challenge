@@ -1,3 +1,7 @@
+/**
+ * Item: object to store the amount of elements of the same product.
+ */
+
 import { Product } from './product';
 
 export class Item {

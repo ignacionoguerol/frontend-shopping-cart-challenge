@@ -1,77 +1,67 @@
-<div class="products">
-  <h1 class="main">Shopping Cart</h1>
-  
-  <table class="products-list">
-
-    <tr class="tableHead row product-list-title">
-      <th class="col-product">
-        <h2>PRODUCT DETAILS</h2>
-      </th>
-      <th class="col-quantity">
-        <h2>QUANTITY</h2>
-      </th>
-      <th class="col-price">
-        <h2>PRICE</h2>
-      </th>
-      <th class="col-total">
-        <h2>TOTAL</h2>
-      </th>
-    </tr>
-
-    <tr *ngFor="let item of co.cart; let i = index;" class="row product">
-      <td class="col-product">
-        <div class="product-image">
-          <img src='../../assets/img/{{item.prod.code.toLowerCase()}}.png'>
-        </div>
-        <div>
-          <h1>{{item.prod.name}}</h1>
-          <p class="product-code"> Product code {{item.prod.code}}</p>
-        </div>
-      </td>
-      
-      <td class="col-quantity">
-        <button class="count" (click)="remove(i)">-</button>
-        <input class="product-quantity" value="{{item.qty}}">
-        <button class="count" (click)="add(i)">+</button>        
-      </td>
-      
-      <td class="col-price product-price">{{item.prod.price}}</td>
-      <td class="col-total product-price">{{item.qty * item.prod.price}}</td>
-    </tr>
-  </table>
-
-  <button class="reset" *ngIf="co.cart.length == 0" (click)="reset()">Reset</button>
-</div>
-
-<div class="summary">
-  <h1 class="main">Order Summary</h1>
-
-  <ul class="wrapper border">
-    <li>
-      <p>{{co.items}}</p>
-      <p class="summary-items-price"> {{co.amount}}€</p>
-    </li>
-  </ul>
-
-  <h2 class="">Dicounts</h2>
-
-  <ul>
-      <li>
-        <p> 2x1 Mug offer</p>
-        <p class=""> -10€</p>
-      </li>
-      <li>
-        <p> x3 Shirt offer</p>
-        <p class=""> -3€</p>
-      </li>
-    </ul>
-
-  <ul class="summary-total">
-    <li>
-      <p class="cost">total cost</p>
-      <p class="price summary-total-price">107€</p>
-    </li>
-  </ul>
-  
-  <button type="submit">Checkout</button>
+<div id="root">
+  <main class="App">
+    <section class="products">
+      <h1 class="main">Shopping cart</h1>
+      <ul class="products-list tableHead">
+        <li class="products-list-title row">
+          <div class="col-product">Product details</div>
+          <div class="col-quantity">Quantity</div>
+          <div class="col-price">Price</div>
+          <div class="col-total">Total</div>
+        </li>
+      </ul>
+      <ul class="products-list">
+        <li *ngFor="let item of co.cart; let i = index;" class="product row">
+          <div class="col-product">
+            <figure class="product-image">
+              <img src='../../assets/img/{{item.prod.code.toLowerCase()}}.png' alt="Shirt" />
+              <div class="product-description">
+                <h1>{{item.prod.name}}</h1>
+                <p class="product-code">Product code {{item.prod.code}}</p>
+              </div>
+            </figure>
+          </div>
+          <div class="col-quantity">
+            <button class="count" (click)="remove(i)">-</button>
+            <input type="text" class="product-quantity" value="{{item.qty}}" />
+            <button class="count" (click)="add(i)">+</button>
+          </div>
+          <div class="col-price">
+            <span class="product-price">{{item.prod.price}}</span
+            ><span class="product-currency currency">€</span>
+          </div>
+          <div class="col-total">
+            <span class="product-price">{{item.qty * item.prod.price}}</span
+            ><span class="product-currency currency">€</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <aside class="summary">
+      <h1 class="main">Order Summary</h1>
+      <ul class="summary-items wrapper border">
+        <li>
+          <span class="summary-items-number">{{co.items}} Items</span
+          ><span class="summary-items-price"
+            >{{co.amount}}<span class="currency">€</span></span
+          >
+        </li>
+      </ul>
+      <div class="summary-discounts tableHead">
+        <h2>Discounts</h2>
+        <ul>
+          <li *ngFor="let discount of co.discounts"><span>{{discount.title}}</span><span>-{{discount.amount}}€</span></li>
+        </ul>
+      </div>
+      <div class="summary-total wrapper">
+        <ul>
+          <li>
+            <span class="summary-total-cost">Total cost</span
+            ><span class="summary-total-price">{{co.amount - co.discount}}€</span>
+          </li>
+        </ul>
+        <button type="submit">Checkout</button>
+      </div>
+    </aside>
+  </main>
 </div>

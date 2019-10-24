@@ -1,3 +1,8 @@
+/**
+ * Product: each of the elements that Cabify sells. 
+ * Products are accumulated in Items in the stock and added by the client to the cart.
+ */
+
 export class Product {
 
     code: string;

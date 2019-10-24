@@ -37,6 +37,7 @@ export class ShoppingcartComponent implements OnInit {
     this.co.scan("TSHIRT");
     this.co.scan("CAP");
     this.co.scan("TSHIRT");
+    this.co.scan("MUG");
   }
 
 }
