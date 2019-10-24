@@ -18,76 +18,29 @@
       </th>
     </tr>
 
-    <tr class="row product">
+    <tr *ngFor="let item of co.cart; let i = index;" class="row product">
       <td class="col-product">
         <div class="product-image">
-          <img src='../../assets/img/shirt.png'>
+          <img src='../../assets/img/{{item.prod.code.toLowerCase()}}.png'>
         </div>
         <div>
-          <h1>Shirt</h1>
-          <p class="product-code"> Product code L23K45HG</p>
+          <h1>{{item.prod.name}}</h1>
+          <p class="product-code"> Product code {{item.prod.code}}</p>
         </div>
       </td>
       
       <td class="col-quantity">
-        <button class="count">-</button>
-        <div class="product-quantity">
-          <p>3</p>
-        </div>
-        <button class="count">+</button>        
+        <button class="count" (click)="remove(i)">-</button>
+        <input class="product-quantity" value="{{item.qty}}">
+        <button class="count" (click)="add(i)">+</button>        
       </td>
       
-      <td class="col-price product-price">20€</td>
-      <td class="col-total product-price">60€</td>
+      <td class="col-price product-price">{{item.prod.price}}</td>
+      <td class="col-total product-price">{{item.qty * item.prod.price}}</td>
     </tr>
-
-    <tr class="row product">
-        <td class="col-product">
-          <div class="product-image">
-            <img src='../../assets/img/mug.png'>
-          </div>
-          <div>
-            <h1>Shirt</h1>
-            <p class="product-code"> Product code L23K45HG</p>
-          </div>
-        </td>
-        
-        <td class="col-quantity">
-          <button class="count">-</button>
-          <div class="product-quantity">
-            <p>4</p>
-          </div>
-          <button class="count">+</button>        
-        </td>
-        
-        <td class="col-price product-price">5€</td>
-        <td class="col-total product-price">20€</td>
-      </tr>
-
-      <tr class="row product">
-          <td class="col-product">
-            <div class="product-image">
-              <img src='../../assets/img/cap.png'>
-            </div>
-            <div>
-              <h1>Shirt</h1>
-              <p class="product-code"> Product code L23K45HG</p>
-            </div>
-          </td>
-          
-          <td class="col-quantity">
-            <button class="count">-</button>
-            <div class="product-quantity">
-              <p>4</p>
-            </div>
-            <button class="count">+</button>        
-          </td>
-          
-          <td class="col-price product-price">10€</td>
-          <td class="col-total product-price">40€</td>
-        </tr>
-
   </table>
+
+  <button class="reset" *ngIf="co.cart.length == 0" (click)="reset()">Reset</button>
 </div>
 
 <div class="summary">
@@ -95,8 +48,8 @@
 
   <ul class="wrapper border">
     <li>
-      <p> 11 Items</p>
-      <p class="summary-items-price"> 120€</p>
+      <p>{{co.items}}</p>
+      <p class="summary-items-price"> {{co.amount}}€</p>
     </li>
   </ul>
 
