@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Checkout } from '../checkout';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailComponent } from './detail/detail.component';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -9,6 +12,8 @@ import { Checkout } from '../checkout';
 export class ShoppingcartComponent implements OnInit {
 
   co: Checkout;
+  details: Boolean = false;
+  selected: Product;
 
   constructor() { 
     this.reset()
@@ -38,6 +43,20 @@ export class ShoppingcartComponent implements OnInit {
     this.co.scan("CAP");
     this.co.scan("TSHIRT");
     this.co.scan("MUG");
+  }
+
+  detail(p: Product): void {
+    this.selected = p;
+    this.details = true;
+  }
+
+  close(){
+    this.details = false;
+  }
+
+  addAndClose(prod: Product){
+    this.details = false;
+    this.co.scan(prod.code);
   }
 
 }

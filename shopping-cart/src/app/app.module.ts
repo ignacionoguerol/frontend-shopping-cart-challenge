@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
-
+import { DetailComponent } from './shoppingcart/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShoppingcartComponent
+    ShoppingcartComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

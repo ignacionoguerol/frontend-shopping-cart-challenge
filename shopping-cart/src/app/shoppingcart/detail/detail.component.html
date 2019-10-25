@@ -1,0 +1,25 @@
+
+<section class="products fill">
+  <img src='../../../assets/img/bonus/{{prod.code.toLowerCase()}}.jpg'>
+</section>
+<aside class="summary">
+
+  <a href="#" class="close" (click)="close()"></a>
+
+  <ul class="summary-items wrapper-half border">
+    <li>
+      <span class="summary-items-number">{{prod.name}}</span
+      ><span class="summary-items-price"
+        >{{prod.price}}<span class="currency">€</span></span
+      >
+    </li>
+  </ul>
+  <div class="summary-discounts wrapper-half border">
+    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h2>
+  </div>
+
+  <p class="product-code">Product code {{prod.code}}</p>
+    
+  <button type="submit" (click)="add()">Add to cart</button>
+
+</aside>

@@ -1,4 +1,4 @@
-<section class="products">
+<section *ngIf="!details" class="products">
   <h1 class="main">Shopping cart</h1>
   <ul class="products-list tableHead">
     <li class="products-list-title row">
@@ -12,9 +12,9 @@
     <li *ngFor="let item of co.cart; let i = index;" class="product row">
       <div class="col-product">
         <figure class="product-image">
-          <img src='../../assets/img/{{item.prod.code.toLowerCase()}}.png' alt="Shirt" />
+          <img src='../../assets/img/{{item.prod.code.toLowerCase()}}.png' (click)="detail(item.prod)" alt="Shirt" />
           <div class="product-description">
-            <h1>{{item.prod.name}}</h1>
+            <h1 (click)="detail(item.prod)" >{{item.prod.name}}</h1>
             <p class="product-code">Product code {{item.prod.code}}</p>
           </div>
         </figure>
@@ -35,7 +35,7 @@
     </li>
   </ul>
 </section>
-<aside class="summary">
+<aside *ngIf="!details" class="summary">
   <h1 class="main">Order Summary</h1>
   <ul class="summary-items wrapper border">
     <li>
@@ -61,3 +61,5 @@
     <button type="submit">Checkout</button>
   </div>
 </aside>
+
+<app-detail *ngIf="details" [prod]="selected" (closed)="close()" (added)="addAndClose($event)" class="App"></app-detail>
