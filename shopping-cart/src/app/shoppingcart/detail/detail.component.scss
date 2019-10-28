@@ -12,6 +12,7 @@
 
 aside{
     background-color: white;
+    padding-top: 50px;
 }
 
 .close {
@@ -39,5 +40,16 @@ aside{
   }
   .close:after {
     transform: rotate(-45deg);
+  }
+
+  .description{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+
+  .summary-items{
+    margin: 50px 0 0 0;
   }
   

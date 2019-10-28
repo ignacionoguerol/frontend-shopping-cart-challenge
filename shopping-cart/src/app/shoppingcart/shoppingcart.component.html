@@ -21,7 +21,7 @@
       </div>
       <div class="col-quantity">
         <button class="count" (click)="remove(i)">-</button>
-        <input type="text" class="product-quantity" value="{{item.qty}}" />
+        <input type="text" class="product-quantity" (change)="update(i)" [(ngModel)]="item.qty" value="{{item.qty}}" />
         <button class="count" (click)="add(i)">+</button>
       </div>
       <div class="col-price">

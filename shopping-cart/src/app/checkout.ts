@@ -18,7 +18,7 @@ export class Checkout {
     amount: number = 0;
     items: number = 0;
 
-    constructor(){
+    constructor(pricingRules: Offer[]){
 
         //Adding the products to the shop's stock.
         this.stock.push(new Item(new Product('CAP', 'Cabify Cap', 5.00),100));
@@ -26,8 +26,7 @@ export class Checkout {
         this.stock.push(new Item(new Product('MUG', 'Cabify Coffe Mug', 7.50),100));
 
         //Adding actual offers
-        this.offers.push(new Offer('2x1', 'CAP', '2x1 Cap Offer'));
-        this.offers.push(new Offer('BULK', 'TSHIRT', 'x3 T-Shirt Offer', 3, 1));
+        this.offers = pricingRules;
 
     }
 
@@ -44,12 +43,14 @@ export class Checkout {
         this.amount = this.items = 0;
         this.cart.forEach(item =>{
             this.amount += item.qty * item.prod.price;
-            this.items += item.qty
+            this.items += Number(item.qty)
         })
 
         this.applyOffers();
     }
 
+    //This functions has the logic to apply the different offers. 
+    //It has support for the 2 described discounts.
     applyOffers(){
         this.discounts = [];
         this.discount = 0;

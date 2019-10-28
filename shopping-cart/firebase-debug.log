@@ -1,0 +1,31 @@
+[debug] [2019-10-28T16:24:12.127Z] ----------------------------------------------------------------------
+[debug] [2019-10-28T16:24:12.130Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\ignac\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-10-28T16:24:12.130Z] CLI Version:   7.5.0
+[debug] [2019-10-28T16:24:12.130Z] Platform:      win32
+[debug] [2019-10-28T16:24:12.130Z] Node Version:  v12.10.0
+[debug] [2019-10-28T16:24:12.131Z] Time:          Mon Oct 28 2019 17:24:12 GMT+0100 (GMT+01:00)
+[debug] [2019-10-28T16:24:12.132Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-28T16:24:12.139Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-28T16:24:12.139Z] > authorizing via signed-in user
+[debug] [2019-10-28T16:24:12.139Z] [iam] checking project cabify-checkout-challenge for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-10-28T16:24:12.141Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cabify-checkout-challenge:testIamPermissions  
+
+[debug] [2019-10-28T16:24:12.976Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-28T16:24:12.979Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/cabify-checkout-challenge  
+ 
+[debug] [2019-10-28T16:24:13.149Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'cabify-checkout-challenge'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-10-28T16:24:13.174Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/cabify-checkout-challenge/versions  
+
+[debug] [2019-10-28T16:24:14.442Z] <<< HTTP RESPONSE 200
+[info] i  hosting[cabify-checkout-challenge]: beginning deploy...
+[info] i  hosting[cabify-checkout-challenge]: found 17 files in dist/shopping-cart
+[debug] [2019-10-28T16:24:14.463Z] [hosting] hash cache [ZGlzdFxzaG9wcGluZy1jYXJ0] load error: lines is not defined
+[debug] [2019-10-28T16:24:14.579Z] [hosting] hash cache [ZGlzdFxzaG9wcGluZy1jYXJ0] stored for 17 files
+[debug] [2019-10-28T16:24:14.579Z] [hosting][hash queue][FINAL]
+[debug] [2019-10-28T16:24:14.579Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/cabify-checkout-challenge/versions/b39daba8e31dbcd0:populateFiles  
+ <request body omitted>

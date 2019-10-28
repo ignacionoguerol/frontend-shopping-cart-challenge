@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Checkout } from '../checkout';
-import { MatDialog } from '@angular/material/dialog';
-import { DetailComponent } from './detail/detail.component';
 import { Product } from '../product';
+import { Offer } from '../offer';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -12,11 +11,24 @@ import { Product } from '../product';
 export class ShoppingcartComponent implements OnInit {
 
   co: Checkout;
+  
   details: Boolean = false;
   selected: Product;
 
   constructor() { 
-    this.reset()
+
+    var pricingRules: Offer[] = [];
+    pricingRules.push(new Offer('2x1', 'CAP', '2x1 Cap Offer'));
+    pricingRules.push(new Offer('BULK', 'TSHIRT', 'x3 T-Shirt Offer', 3, 1));
+
+    this.co = new Checkout(pricingRules);
+
+    this.co.scan("TSHIRT");
+    this.co.scan("CAP");
+    this.co.scan("TSHIRT");
+    this.co.scan("MUG");
+    this.co.scan("TSHIRT");
+    
   }
 
   ngOnInit() {
@@ -37,14 +49,18 @@ export class ShoppingcartComponent implements OnInit {
     this.co.total();
   }
 
-  reset(){
-    this.co = new Checkout();
-    this.co.scan("TSHIRT");
-    this.co.scan("CAP");
-    this.co.scan("TSHIRT");
-    this.co.scan("MUG");
+  update(index: number){
+    if(this.co.cart[index].qty == 0){
+      this.co.cart.splice(index, 1);
+    }
+
+    this.co.total();
   }
 
+  /**
+   * 
+   * To control modal visibility
+   */
   detail(p: Product): void {
     this.selected = p;
     this.details = true;
